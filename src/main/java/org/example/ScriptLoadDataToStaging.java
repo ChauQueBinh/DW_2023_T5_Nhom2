@@ -25,11 +25,11 @@ public class ScriptLoadDataToStaging {
             }
             // Process each line
             for (String[] line : allLines) {
-                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,doi,tran,thang,hoa,bai,heSo,diem,5trangannhat, thoigiancraw) values (");
-                for (int i=0; i<line.length-1; i++) {
+                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,logo,doi,tran,thang,hoa,bai,heSo,diem,5trangannhat, thoigiancraw) values (");
+                for (int i=0; i<line.length-2; i++) {
                     stringBuilderSQL.append("'"+ line[i] + "',");
                 }
-                stringBuilderSQL.append("'"+line[line.length-1]+"');");
+                stringBuilderSQL.append("'"+line[line.length-2]+"');");
                 try (Handle handle = JDBiConnector.me().open()) {
                     handle.createUpdate(stringBuilderSQL.toString())
                             .execute();

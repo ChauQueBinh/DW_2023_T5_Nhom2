@@ -1,3 +1,5 @@
+package org.example;
+
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,7 +11,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ScriptCrawData {
+public class test {
     public static void main(String[] args) {
         try {
             // Connect to a website and get the HTML
@@ -92,3 +94,4 @@ public class ScriptCrawData {
         return "";
     }
 }
+
