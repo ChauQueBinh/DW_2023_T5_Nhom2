@@ -1,5 +1,3 @@
-package org.example;
-
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,28 +19,47 @@ public class ScriptCrawData {
             String title = document.title();
             System.out.println("Title: " + title);
 
+            // Đặt tên cho cột chứa đường dẫn hình ảnh (ví dụ: cột thứ 2)
+            int imageColumnIndex = 1;
+
             Element tableBXH = document.select("table.table-bxh").first();
             Elements rows = tableBXH.select("tr");
             FileWriter fileWriter = new FileWriter("D:\\Bangxephangbongda.csv");
+
             // Create a CSVWriter
             CSVWriter csvWriter = new CSVWriter(fileWriter);
+
             // Iterate over each row
             for (Element row : rows) {
                 // Select all cells in the row
                 Elements cells = row.select("td");
-                if (cells.text().isEmpty())continue;
+
+                if (cells.text().isEmpty()) continue;
+
                 // Create an array to hold data for each row
-                String[] rowData = new String[cells.size()+1];
+                String[] rowData = new String[cells.size() +2 ]; // Increased size by 2 for the image and datetime columns
+
                 // Populate the array with data from each cell
                 for (int i = 0; i < cells.size(); i++) {
-                    rowData[i] = cells.get(i).text();
+                    if (i < imageColumnIndex) {
+                        rowData[i] = cells.get(i).text();
+                    } else {
+                        rowData[i + 1] = cells.get(i).text();
+                    }
                 }
+
+                // Add image URL to the array
+                String imageUrl = getImageUrlFromCell(cells.get(imageColumnIndex));
+                rowData[imageColumnIndex] = imageUrl;
+
                 LocalDateTime dt = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
-                rowData[rowData.length - 1] = dt.format(formatter);
+                rowData[rowData.length - 2] = dt.format(formatter);
+
                 // Write the data to the CSV file
                 csvWriter.writeNext(rowData);
             }
+
             // Close the CSVWriter and FileWriter
             csvWriter.close();
             fileWriter.close();
@@ -50,5 +67,16 @@ public class ScriptCrawData {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Thêm phương thức để lấy đường dẫn hình ảnh từ cell
+    private static String getImageUrlFromCell(Element cell) {
+        // Điều chỉnh selector tùy thuộc vào cách dữ liệu hình ảnh được đặt trong HTML
+        Element imageElement = cell.select("img").first();
+        if (imageElement != null) {
+            // Lấy đường dẫn từ thuộc tính src hoặc data-src
+            return imageElement.attr("src");
+        }
+        return "";
     }
 }
