@@ -4,29 +4,30 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DBProperties {
-    public static Properties prop = new Properties();
+    private static Properties propStaging = new Properties();
+    private static Properties propFact = new Properties();
 
     static {
         try {
-            prop.load(DBProperties.class.getClassLoader().getResourceAsStream("db.properties"));
+            propStaging.load(DBProperties.class.getClassLoader().getResourceAsStream("DBStaging.properties"));
+            propFact.load(DBProperties.class.getClassLoader().getResourceAsStream("DBFact.properties"));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
-    public static String host() {
-        return prop.get("db.host").toString();
-    }
-    public static String port() {
-        return prop.get("db.port").toString();
-    }
-    public static String user() {
-        return prop.get("db.user").toString();
-    }
-    public static String pass() {
-        return prop.get("db.pass").toString();
-    }
-    public static String name() {
-        return prop.get("db.name").toString();
-    }
+    // Sử dụng propStaging cho staging environment
+    public static String hostStaging = propStaging.getProperty("db.host");
+    public static String portStaging = propStaging.getProperty("db.port");
+    public static String usernameStaging = propStaging.getProperty("db.username");
+    public static String passStaging = propStaging.getProperty("db.password");
+    public static String dbnameStaging = propStaging.getProperty("db.name");
+
+    // Sử dụng propFact cho fact environment
+    public static String hostFact = propFact.getProperty("db.host");
+    public static String portFact = propFact.getProperty("db.port");
+    public static String usernameFact = propFact.getProperty("db.username");
+    public static String passFact = propFact.getProperty("db.password");
+    public static String dbnameFact = propFact.getProperty("db.name");
 }

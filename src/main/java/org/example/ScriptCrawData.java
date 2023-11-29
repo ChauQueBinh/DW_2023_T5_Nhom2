@@ -1,3 +1,5 @@
+package org.example;
+
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -37,10 +39,11 @@ public class ScriptCrawData {
                 if (cells.text().isEmpty()) continue;
 
                 // Create an array to hold data for each row
-                String[] rowData = new String[cells.size() +2 ]; // Increased size by 2 for the image and datetime columns
+                String[] rowData = new String[cells.size() + 3]; // Increased size by 3 for the image, datetime, and last 5 matches columns
 
                 // Populate the array with data from each cell
                 for (int i = 0; i < cells.size(); i++) {
+                    // Adjust the index to insert the team name before the image URL
                     if (i < imageColumnIndex) {
                         rowData[i] = cells.get(i).text();
                     } else {
@@ -52,9 +55,13 @@ public class ScriptCrawData {
                 String imageUrl = getImageUrlFromCell(cells.get(imageColumnIndex));
                 rowData[imageColumnIndex] = imageUrl;
 
+                // Add datetime to the array
                 LocalDateTime dt = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
                 rowData[rowData.length - 2] = dt.format(formatter);
+
+                // Add last 5 matches to the array
+                rowData[rowData.length - 1] = getLast5Matches(cells);
 
                 // Write the data to the CSV file
                 csvWriter.writeNext(rowData);
@@ -77,6 +84,13 @@ public class ScriptCrawData {
             // Lấy đường dẫn từ thuộc tính src hoặc data-src
             return imageElement.attr("src");
         }
+        return "";
+    }
+
+    // Thêm phương thức để lấy thông tin về 5 trận gần nhất
+    private static String getLast5Matches(Elements cells) {
+        // Implement your logic to extract information about the last 5 matches from the 'cells'
+        // For now, I'll return an empty string
         return "";
     }
 }
