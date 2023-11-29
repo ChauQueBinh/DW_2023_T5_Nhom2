@@ -1,4 +1,4 @@
-package org.example;
+package service;
 
 public class ScriptLoadDataToMart {
 
