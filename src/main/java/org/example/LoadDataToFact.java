@@ -15,11 +15,9 @@ public class LoadDataToFact {
         // Thực hiện quá trình ETL
         performETL();
     }
-
     private static void performETL() {
         // Lấy đối tượng Jdbi cho cơ sở dữ liệu staging
         Jdbi jdbiStaging = JDBIConnector.getStagingJdbi();
-
         // Lấy đối tượng Jdbi cho cơ sở dữ liệu fact
         Jdbi jdbiFact = JDBIConnector.getFactJdbi();
 
@@ -54,7 +52,6 @@ public class LoadDataToFact {
         // Thực hiện biến đổi và nạp dữ liệu vào các bảng fact dim
         String loadQueryDoibongdim = "INSERT INTO doibongdim (logo, ten_doi_bong) " +
                 "VALUES (?, ?)";
-
         String loadQueryThoigiandim = "INSERT INTO thoigiandim (day, month, year) " +
                 "VALUES (?, ?, ?)";
         String loadQueryBangxephangfact = "INSERT INTO bangxephangfact (hang,logo, doi, tran, thang, hoa, bai, heso, diem, 5trangannhat, thoigiancraw) " +
@@ -62,14 +59,12 @@ public class LoadDataToFact {
 
         //Xử lý dữ liệu time
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
-
         // Lặp qua danh sách kết quả truy vấn staging và thực hiện nạp vào fact
         for (Map<String, Object> row : resultData) {
             handle.createUpdate(loadQueryDoibongdim)
                     .bind(0, row.get("logo"))
                     .bind(1, row.get("doi"))
                     .execute();
-
             if (row == resultData.get(0)) {
                 // Chuyển đổi giá trị thời gian từ Map
                 String thoigiancraw = (String) row.get("thoigiancraw");
