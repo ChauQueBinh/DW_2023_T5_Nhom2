@@ -1,21 +1,31 @@
-package org.example;
+package service;
 
+import bean.Config;
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ScriptCrawData {
-    public static void main(String[] args) {
+    public static void crawlerDataformConfig() {
+        List<Config> list = ConfigService.getInstance().getListConfig();
+        for (Config c : list) {
+            crawlerData(c.getUrl_website());
+        }
+    }
+
+    public static void crawlerData(String url) {
         try {
             // Connect to a website and get the HTML
-            Document document = Jsoup.connect("https://bongda24h.vn/hang-nhat-anh/bang-xep-hang-9.html").get();
+            Document document = Jsoup.connect(url).get();
 
             // Extract and print the title of the HTML document
             String title = document.title();
@@ -26,9 +36,11 @@ public class ScriptCrawData {
 
             Element tableBXH = document.select("table.table-bxh").first();
             Elements rows = tableBXH.select("tr");
-            FileWriter fileWriter = new FileWriter("D:\\Bangxephangbongda.csv");
+
 
             // Create a CSVWriter
+            File file = new File("D:\\dataWarehouse\\Bangxephangbongda.csv");
+            FileWriter fileWriter = new FileWriter(file);
             CSVWriter csvWriter = new CSVWriter(fileWriter);
 
             // Iterate over each row
@@ -39,7 +51,7 @@ public class ScriptCrawData {
                 if (cells.text().isEmpty()) continue;
 
                 // Create an array to hold data for each row
-                String[] rowData = new String[cells.size() + 3]; // Increased size by 3 for the image, datetime, and last 5 matches columns
+                String[] rowData = new String[cells.size() + 4]; // Increased size by 2 for the image and datetime columns
 
                 // Populate the array with data from each cell
                 for (int i = 0; i < cells.size(); i++) {
@@ -59,6 +71,8 @@ public class ScriptCrawData {
                 LocalDateTime dt = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
                 rowData[rowData.length - 2] = dt.format(formatter);
+                rowData[rowData.length - 1] = getLast5Matches(cells);
+                rowData[rowData.length - 3] = title;
 
                 // Add last 5 matches to the array
                 rowData[rowData.length - 1] = getLast5Matches(cells);
@@ -76,6 +90,12 @@ public class ScriptCrawData {
         }
     }
 
+    public static void main(String[] args) {
+
+//        crawlerData("https://bongda24h.vn/vleague/bang-xep-hang-25.html");
+        crawlerDataformConfig();
+    }
+
     // Thêm phương thức để lấy đường dẫn hình ảnh từ cell
     private static String getImageUrlFromCell(Element cell) {
         // Điều chỉnh selector tùy thuộc vào cách dữ liệu hình ảnh được đặt trong HTML
@@ -87,7 +107,6 @@ public class ScriptCrawData {
         return "";
     }
 
-    // Thêm phương thức để lấy thông tin về 5 trận gần nhất
     private static String getLast5Matches(Elements cells) {
         // Implement your logic to extract information about the last 5 matches from the 'cells'
         // For now, I'll return an empty string
