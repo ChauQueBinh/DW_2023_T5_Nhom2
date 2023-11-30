@@ -17,12 +17,13 @@ import java.util.List;
 public class ScriptCrawData {
     public static void crawlerDataformConfig() {
         List<Config> list = ConfigService.getInstance().getListConfig();
+
         for (Config c : list) {
-            crawlerData(c.getUrl_website());
+            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format());
         }
     }
 
-    public static void crawlerData(String url) {
+    public static void crawlerData(String url, String sourceFile, String fileFormat) {
         try {
             // Connect to a website and get the HTML
             Document document = Jsoup.connect(url).get();
@@ -39,7 +40,8 @@ public class ScriptCrawData {
 
 
             // Create a CSVWriter
-            File file = new File("D:\\dataWarehouse\\Bangxephangbongda.csv");
+            File file = new File(sourceFile + fileFormat);
+            System.out.println(sourceFile+fileFormat);
             FileWriter fileWriter = new FileWriter(file);
             CSVWriter csvWriter = new CSVWriter(fileWriter);
 

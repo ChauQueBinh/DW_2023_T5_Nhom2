@@ -1,5 +1,6 @@
 package service;
 
+import bean.Config;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.example.db.JDBIConnector;
@@ -11,26 +12,33 @@ import java.io.IOException;
 import java.util.List;
 
 public class ScriptLoadDataToStaging {
-    public static  void loadDataformFileToStaging(){
-        String csvFilePath = "D:\\Test\\Bangxephangbongda.csv";
+    public static void loadDataToStaging() {
+        List<Config> list = ConfigService.getInstance().getListConfig();
+//        try (Handle handle = JDBIConnector.getStagingJdbi().open()) {
+//            handle.createUpdate("TRUNCATE TABLE bangxephangstaging")
+//                    .execute();
+//        }
+        for (Config config : list) {
+            loadDataformFileToStaging(config.getFile_path(), config.getFile_format());
+        }
+    }
+
+    public static void loadDataformFileToStaging(String file, String formatFile) {
+        String csvFilePath = file + formatFile;
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
              CSVReader csvReader = new CSVReader(reader)) {
 
             // Read all lines from the CSV file
             List<String[]> allLines = csvReader.readAll();
-            try (Handle handle = JDBIConnector.getStagingJdbi().open()) {
-                handle.createUpdate("TRUNCATE TABLE bangxephangstaging")
-                        .execute();
 
-            }
             // Process each line
             for (String[] line : allLines) {
-                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,logo,doi,tran,thang,hoa,bai,heSo,diem,5trangannhat, thoigiancraw) values (");
+                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,logo,doi,tran,thang,hoa,bai,heSo,diem,5trangannhat,giai_dau,thoigiancraw) values (");
                 for (int i = 0; i < line.length - 2; i++) {
                     stringBuilderSQL.append("'" + line[i] + "',");
                 }
                 stringBuilderSQL.append("'" + line[line.length - 2] + "');");
-                try (Handle handle = JDBiConnector.me().open()) {
+                try (Handle handle = JDBIConnector.getStagingJdbi().open()) {
                     handle.createUpdate(stringBuilderSQL.toString())
                             .execute();
                 }
@@ -41,6 +49,6 @@ public class ScriptLoadDataToStaging {
     }
 
     public static void main(String[] args) {
-        loadDataformFileToStaging();
+        loadDataToStaging();
     }
 }
