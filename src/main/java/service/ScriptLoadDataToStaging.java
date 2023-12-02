@@ -9,6 +9,7 @@ import org.jdbi.v3.core.Handle;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ScriptLoadDataToStaging {
@@ -19,12 +20,13 @@ public class ScriptLoadDataToStaging {
 //                    .execute();
 //        }
         for (Config config : list) {
-            loadDataformFileToStaging(config.getFile_path(), config.getFile_format());
+
+            loadDataformFileToStaging(config.getFile_path(), config.getFile_format(), config.getUpdate_date());
         }
     }
 
-    public static void loadDataformFileToStaging(String file, String formatFile) {
-        String csvFilePath = file + formatFile;
+    public static void loadDataformFileToStaging(String file, String formatFile, LocalDate date) {
+        String csvFilePath = file + date + formatFile;
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath));
              CSVReader csvReader = new CSVReader(reader)) {
 
@@ -33,7 +35,7 @@ public class ScriptLoadDataToStaging {
 
             // Process each line
             for (String[] line : allLines) {
-                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,logo,doi,tran,thang,hoa,bai,heSo,diem,5trangannhat,giai_dau,thoigiancraw) values (");
+                StringBuilder stringBuilderSQL = new StringBuilder("Insert into staging(hang,logo,ten_doi_bong,so_tran,tran_thang,tran_hoa,tran_thua,he_so,diem,nam_tran_gan_nhat,ten_giai_dau,thoi_gian_crawl) values (");
                 for (int i = 0; i < line.length - 2; i++) {
                     stringBuilderSQL.append("'" + line[i] + "',");
                 }

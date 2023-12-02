@@ -1,6 +1,7 @@
 package service;
 
 import bean.Config;
+import bean.Log;
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -10,25 +11,52 @@ import org.jsoup.select.Elements;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ScriptCrawData {
     public static void crawlerDataformConfig() {
         List<Config> list = ConfigService.getInstance().getListConfig();
-
+        Log log ;
+        // 1. Lấy từng dòng file trong bảng config
         for (Config c : list) {
-            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format());
+            System.out.println(c.getId());
+             log = LogService.getInstance().getLogByConfigId(c.getId());
+            if (log == null) { // Nếu chưa có log thì thêm log vào
+                log = new Log(1, LocalDateTime.now(), "crawling data", c, "CRAWLING");
+                LogService.getInstance().addLog(log);
+                continue;
+            }
+            // 2. Kiểm tra status trong bảng log
+            if (log.getStatus() == "CRAWLING") { // kiểm tra status xem dòng dữ liệu hiện có đang chạy hay không
+                continue;
+            }
+            //3. Cập nhật status trong log thành CRAWLLING
+            LogService.getInstance().setStatus("CRAWLING", log.getId());
+            // Tiến hành crawl dữ liệu
+            ConfigService.getInstance().updateDateConfig(LocalDate.now(), c.getId());
+            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format(), c.getUpdate_date(), log.getId());
         }
     }
 
-    public static void crawlerData(String url, String sourceFile, String fileFormat) {
+    public static void crawlerData(String url, String sourceFile, String fileFormat, LocalDate update_date, int idLog) {
         try {
-            // Connect to a website and get the HTML
+            // 4. Lấy đường dẫn URL của website
             Document document = Jsoup.connect(url).get();
+            // 5. Kiểm tra đường dẫn có lỗi hay không
+            if (document == null) {
+                // 5.1. Nếu đường dẫn có lỗi xãy ra cập nhật status vào bảng log
+                LogService.getInstance().setStatus("ERROR", idLog);
+                // 5.2. Ghi lỗi vào bảng log
+                LogService.getInstance().setMessage("Lỗi khi truy cập link website: " + document, idLog);
+                return;
+            }
 
-            // Extract and print the title of the HTML document
+            //6. Tiến hành đọc dữ liệu các thẻ html của website
             String title = document.title();
             System.out.println("Title: " + title);
 
@@ -38,26 +66,17 @@ public class ScriptCrawData {
             Element tableBXH = document.select("table.table-bxh").first();
             Elements rows = tableBXH.select("tr");
 
-
-            // Create a CSVWriter
-            File file = new File(sourceFile + fileFormat);
-            System.out.println(sourceFile+fileFormat);
-            FileWriter fileWriter = new FileWriter(file);
-            CSVWriter csvWriter = new CSVWriter(fileWriter);
-
-            // Iterate over each row
+            List<String[]> listDataRow = new ArrayList<>();
+            //7. Duyệt lần lượt các dòng dữ liệu
             for (Element row : rows) {
-                // Select all cells in the row
+                // 8. Lấy một dòng dữ liệu
                 Elements cells = row.select("td");
-
                 if (cells.text().isEmpty()) continue;
 
-                // Create an array to hold data for each row
-                String[] rowData = new String[cells.size() + 4]; // Increased size by 2 for the image and datetime columns
-
-                // Populate the array with data from each cell
+                //10. Lưu 1 dòng dữ liệu vào dạng mãng String
+                String[] rowData = new String[cells.size() + 4];
+                // 11. Duyệt đến khi hết dòng dữ liệu
                 for (int i = 0; i < cells.size(); i++) {
-                    // Adjust the index to insert the team name before the image URL
                     if (i < imageColumnIndex) {
                         rowData[i] = cells.get(i).text();
                     } else {
@@ -65,36 +84,56 @@ public class ScriptCrawData {
                     }
                 }
 
-                // Add image URL to the array
+                // lưu Url hình ảnh vào mãng
                 String imageUrl = getImageUrlFromCell(cells.get(imageColumnIndex));
                 rowData[imageColumnIndex] = imageUrl;
 
-                // Add datetime to the array
+                // Lưu thời gian vào mãng
                 LocalDateTime dt = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
                 rowData[rowData.length - 2] = dt.format(formatter);
+
+                // thông tin của các đội
                 rowData[rowData.length - 1] = getLast5Matches(cells);
+                // tên giải đấu
                 rowData[rowData.length - 3] = title;
 
-                // Add last 5 matches to the array
+                // năm trận gần nhất
                 rowData[rowData.length - 1] = getLast5Matches(cells);
 
-                // Write the data to the CSV file
-                csvWriter.writeNext(rowData);
+                // 11.lưu tất cả dòng dữ liệu vào list
+//                csvWriter.writeNext(rowData);
+                listDataRow.add(rowData);
             }
-
-            // Close the CSVWriter and FileWriter
+            //12. Đọc đường dẫn file csv từ bảng config
+            File file = new File(sourceFile + update_date + fileFormat);
+            //13. Kiểm tra lỗi đường dẫn hay không
+            if (file.getPath() == null ) {
+                // 5.1 cập nhật status trong bảng log
+                LogService.getInstance().setStatus("ERROR", idLog);
+                // 5.2 Ghi lỗi vào bảng log
+                LogService.getInstance().setMessage("Lỗi đường dẫn", idLog);
+                return;
+            }
+            System.out.println(file.getPath());
+            FileWriter fileWriter = new FileWriter(file);
+            CSVWriter csvWriter = new CSVWriter(fileWriter);
+            //14. Lưu tất cả vào dữ liệu vào file.csv
+            for (String[] s : listDataRow) {
+                csvWriter.writeNext(s);
+            }
+            //15. Đóng file
             csvWriter.close();
             fileWriter.close();
             System.out.println("Data has been written to output.csv");
+            LogService.getInstance().setStatus("SUCCESS", idLog);
         } catch (IOException e) {
+            LogService.getInstance().setStatus("ERROR", idLog);
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-
-//        crawlerData("https://bongda24h.vn/vleague/bang-xep-hang-25.html");
         crawlerDataformConfig();
     }
 
@@ -110,8 +149,7 @@ public class ScriptCrawData {
     }
 
     private static String getLast5Matches(Elements cells) {
-        // Implement your logic to extract information about the last 5 matches from the 'cells'
-        // For now, I'll return an empty string
         return "";
+
     }
 }

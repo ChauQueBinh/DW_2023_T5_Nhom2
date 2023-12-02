@@ -3,6 +3,8 @@ package service;
 import bean.Config;
 import org.example.db.JDBIConnector;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +41,19 @@ public class ConfigService {
         });
     }
 
+    public Config getConfigByLogId(int id) {
+        return JDBIConnector.getControlJdbi().withHandle(handle -> {
+            return handle.createQuery("SELECT cf.id, name_config, value_config, description, url_website,file_format, file_path, run_time, create_date, update_date, cf.status from config cf join log l on cf.id= l.config_id where l.id =" + id).mapToBean(Config.class).one();
+        });
+    }
+
+    public void updateDateConfig(LocalDate update_date, int id) {
+        JDBIConnector.getControlJdbi().withHandle(handle -> {
+            return handle.createUpdate("UPDATE config set update_date =" + update_date + "where id = " + id);
+        });
+    }
+
     public static void main(String[] args) {
-        System.out.println(getInstance().getListConfig());
+      getInstance().updateDateConfig(LocalDate.now(),1);
     }
 }
