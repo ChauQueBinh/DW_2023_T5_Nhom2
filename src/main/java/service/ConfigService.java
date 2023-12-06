@@ -4,7 +4,6 @@ import bean.Config;
 import org.example.db.JDBIConnector;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,8 +35,10 @@ public class ConfigService {
 
     public void setStatusConfig(String status, int id) {
         JDBIConnector.getControlJdbi().withHandle(handle -> {
-            return handle.createUpdate("update config set status =" + status + " where id = ?")
-                    .bind(0, id).execute();
+            return handle.createUpdate("update config set status =? where id = ?")
+                    .bind(0, status)
+                    .bind(1, id)
+                    .execute();
         });
     }
 
@@ -47,13 +48,19 @@ public class ConfigService {
         });
     }
 
-    public void updateDateConfig(LocalDate update_date, int id) {
-        JDBIConnector.getControlJdbi().withHandle(handle -> {
-            return handle.createUpdate("UPDATE config set update_date =" + update_date + "where id = " + id);
+    public LocalDate updateDateConfig(LocalDate update_date, int id) {
+        int i = JDBIConnector.getControlJdbi().withHandle(handle -> {
+            return handle.createUpdate("UPDATE config set update_date = ? where id =?")
+                    .bind(0, update_date)
+                    .bind(1, id)
+                    .execute();
         });
+        if (i == 1)
+            return update_date;
+        return null;
     }
 
     public static void main(String[] args) {
-      getInstance().updateDateConfig(LocalDate.now(),1);
+        System.out.println(getInstance().updateDateConfig(LocalDate.now(), 0));
     }
 }

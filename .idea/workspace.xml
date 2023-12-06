@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DW_2023_T5_Nhom2:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c2f33e5-caf5-472d-94e7-d6269982dc1b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/control.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fact.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mart.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/DBProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/DBProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/JDBiConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/JDBiConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ConfigService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptCrawData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptCrawData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToMart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToMart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToStaging.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToStaging.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToMart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToMart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DBStaging.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DBStaging.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staging.sql" beforeDir="false" afterPath="$PROJECT_DIR$/staging.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/DBProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/JDBIConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptCrawData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToMart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToStaging.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,27 +79,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/DW_2023_T5_Nhom2-20130204_chauquebinh&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15917969&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.26242775&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/LTWeb/final_project/DataWareHouse/DW_2023_T5_Nhom2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15917969",
+    "project.structure.side.proportion": "0.26242775",
+    "settings.editor.selected.configurable": "CodeWithMe",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\LTWeb\final_project\DataWareHouse\DW_2023_T5_Nhom2" />
       <recent name="D:\Data WareHouse\DW_2023_T5_Nhom2\src\main\resources" />
       <recent name="D:\Data WareHouse\DW_2023_T5_Nhom2\src\main\java" />
     </key>
@@ -68,7 +109,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.service.ScriptLoadDataToStaging">
+  <component name="RunManager" selected="Application.service.ScriptCrawData">
     <configuration name="ConfigService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="service.ConfigService" />
       <module name="DW_2023_T5_Nhom2" />
@@ -134,18 +175,106 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 9.0.68" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.68" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="openjdk-21 (2)" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="DW_2023_T5_Nhom2:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="8d54d34e-297e-4b59-a308-d12e22a0bc64" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52772" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="DW_2023_T5_Nhom2:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.service.ScriptLoadDataToStaging" />
       <item itemvalue="Application.LogService" />
       <item itemvalue="Application.service.ScriptCrawData" />
       <item itemvalue="Application.LoadDataToFact" />
       <item itemvalue="Application.ConfigService" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.68" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.service.ScriptLoadDataToStaging" />
         <item itemvalue="Application.service.ScriptCrawData" />
         <item itemvalue="Application.ConfigService" />
+        <item itemvalue="Application.service.ScriptLoadDataToStaging" />
         <item itemvalue="Application.LogService" />
         <item itemvalue="Application.LoadDataToFact" />
       </list>
@@ -166,7 +295,12 @@
       <workItem from="1701409514232" duration="7961000" />
       <workItem from="1701424073951" duration="984000" />
       <workItem from="1701447758404" duration="4531000" />
-      <workItem from="1701488006605" duration="6135000" />
+      <workItem from="1701488006605" duration="8586000" />
+      <workItem from="1701525806286" duration="7090000" />
+      <workItem from="1701659700875" duration="13105000" />
+      <workItem from="1701709993581" duration="599000" />
+      <workItem from="1701799434418" duration="200000" />
+      <workItem from="1701846838377" duration="272000" />
     </task>
     <servers />
   </component>
@@ -183,5 +317,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

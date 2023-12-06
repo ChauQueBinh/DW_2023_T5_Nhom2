@@ -92,8 +92,6 @@ public class LoadDataToFact {
                         .bind(10, row.get("thoigiancraw"))
                         .execute();
             }
-
-
         }
 
     }

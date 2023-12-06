@@ -17,8 +17,7 @@ public class ScriptLoadDataToStaging {
         List<Config> list = ConfigService.getInstance().getListConfig();
 //        try (Handle handle = JDBIConnector.getStagingJdbi().open()) {
 //            handle.createUpdate("TRUNCATE TABLE bangxephangstaging")
-//                    .execute();
-//        }
+//                    .execute();//        }
         for (Config config : list) {
 
             loadDataformFileToStaging(config.getFile_path(), config.getFile_format(), config.getUpdate_date());

@@ -38,8 +38,8 @@ public class ScriptCrawData {
             //3. Cập nhật status trong log thành CRAWLLING
             LogService.getInstance().setStatus("CRAWLING", log.getId());
             // Tiến hành crawl dữ liệu
-            ConfigService.getInstance().updateDateConfig(LocalDate.now(), c.getId());
-            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format(), c.getUpdate_date(), log.getId());
+           LocalDate date= ConfigService.getInstance().updateDateConfig(LocalDate.now(), c.getId());
+            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format(), date, log.getId());
         }
     }
 
@@ -57,7 +57,7 @@ public class ScriptCrawData {
             }
 
             //6. Tiến hành đọc dữ liệu các thẻ html của website
-            String title = document.title();
+            String title = document.select("h2.title-giaidau").text();
             System.out.println("Title: " + title);
 
             // Đặt tên cho cột chứa đường dẫn hình ảnh (ví dụ: cột thứ 2)
@@ -99,7 +99,7 @@ public class ScriptCrawData {
                 rowData[rowData.length - 3] = title;
 
                 // năm trận gần nhất
-                rowData[rowData.length - 1] = getLast5Matches(cells);
+//                rowData[rowData.length - 1] = getLast5Matches(cells);
 
                 // 11.lưu tất cả dòng dữ liệu vào list
 //                csvWriter.writeNext(rowData);
