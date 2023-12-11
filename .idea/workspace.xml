@@ -10,22 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c2f33e5-caf5-472d-94e7-d6269982dc1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/FileData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DW_2023_T5_Nhom2_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DW_2023_T5_Nhom2_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/DBConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/JDBIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/JDBIConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DBControl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DBControl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DBStaging.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DBStaging.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DBFact.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DBStaging.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +30,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -299,7 +283,7 @@
       <workItem from="1702029967411" duration="619000" />
       <workItem from="1702124619114" duration="13702000" />
       <workItem from="1702214179780" duration="5585000" />
-      <workItem from="1702267699470" duration="5707000" />
+      <workItem from="1702267699470" duration="7328000" />
     </task>
     <servers />
   </component>
