@@ -10,33 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c2f33e5-caf5-472d-94e7-d6269982dc1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/control.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fact.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mart.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/FileData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/DW_2023_T5_Nhom2_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/DW_2023_T5_Nhom2_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/bean/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/DBProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/DBProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/JDBiConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/org/example/db/JDBiConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ConfigService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ConfigService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptCrawData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptCrawData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToMart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToMart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToStaging.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DW_2023_T5_Nhom2_war_exploded/WEB-INF/classes/service/ScriptLoadDataToStaging.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/JDBIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/JDBIConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staging.sql" beforeDir="false" afterPath="$PROJECT_DIR$/staging.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/DBProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/JDBIConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptCrawData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToMart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToStaging.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DBControl.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DBControl.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DBStaging.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DBStaging.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBFact.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DBStaging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,27 +68,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/LTWeb/final_project/DataWareHouse/DW_2023_T5_Nhom2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15917969",
-    "project.structure.side.proportion": "0.26242775",
-    "settings.editor.selected.configurable": "CodeWithMe",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/LTWeb/final_project/DataWareHouse/DW_2023_T5_Nhom2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15917969&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.26242775&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bean" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\LTWeb\final_project\DataWareHouse\DW_2023_T5_Nhom2" />
       <recent name="D:\Data WareHouse\DW_2023_T5_Nhom2\src\main\resources" />
@@ -123,12 +115,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoadDataToFact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.LoadDataToFact" />
-      <module name="CrawData" />
+    <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.db.DBConnect" />
+      <module name="DW_2023_T5_Nhom2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.db.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,12 +128,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.LogService" />
+    <configuration name="JDBIConnector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.db.JDBIConnector" />
       <module name="DW_2023_T5_Nhom2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.*" />
+          <option name="PATTERN" value="org.example.db.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -263,20 +255,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.DBConnect" />
+      <item itemvalue="Application.JDBIConnector" />
       <item itemvalue="Application.service.ScriptLoadDataToStaging" />
-      <item itemvalue="Application.LogService" />
       <item itemvalue="Application.service.ScriptCrawData" />
-      <item itemvalue="Application.LoadDataToFact" />
       <item itemvalue="Application.ConfigService" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.68" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.service.ScriptCrawData" />
-        <item itemvalue="Application.ConfigService" />
         <item itemvalue="Application.service.ScriptLoadDataToStaging" />
-        <item itemvalue="Application.LogService" />
-        <item itemvalue="Application.LoadDataToFact" />
+        <item itemvalue="Application.ConfigService" />
+        <item itemvalue="Application.DBConnect" />
+        <item itemvalue="Application.JDBIConnector" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +292,14 @@
       <workItem from="1701659700875" duration="13105000" />
       <workItem from="1701709993581" duration="599000" />
       <workItem from="1701799434418" duration="200000" />
-      <workItem from="1701846838377" duration="272000" />
+      <workItem from="1701846838377" duration="989000" />
+      <workItem from="1701870431125" duration="2751000" />
+      <workItem from="1701928417097" duration="8304000" />
+      <workItem from="1702013794168" duration="7856000" />
+      <workItem from="1702029967411" duration="619000" />
+      <workItem from="1702124619114" duration="13702000" />
+      <workItem from="1702214179780" duration="5585000" />
+      <workItem from="1702267699470" duration="5707000" />
     </task>
     <servers />
   </component>
@@ -312,7 +311,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

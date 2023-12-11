@@ -7,7 +7,7 @@ public class DBConnect {
     private static String DB_URL = "jdbc:mysql://localhost/control";
 
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "1234";
 
     private Connection connection;
 

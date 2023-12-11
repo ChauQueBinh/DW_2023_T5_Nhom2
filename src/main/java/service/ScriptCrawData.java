@@ -1,6 +1,7 @@
 package service;
 
 import bean.Config;
+import bean.FileData;
 import bean.Log;
 import com.opencsv.CSVWriter;
 import org.jsoup.Jsoup;
@@ -15,48 +16,49 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ScriptCrawData {
     public static void crawlerDataformConfig() {
         List<Config> list = ConfigService.getInstance().getListConfig();
-        Log log ;
-        // 1. Lấy từng dòng file trong bảng config
+        FileData fileData;
+        // 4. Lấy từng dòng file trong bảng config
         for (Config c : list) {
             System.out.println(c.getId());
-             log = LogService.getInstance().getLogByConfigId(c.getId());
-            if (log == null) { // Nếu chưa có log thì thêm log vào
-                log = new Log(1, LocalDateTime.now(), "crawling data", c, "CRAWLING");
-                LogService.getInstance().addLog(log);
-                continue;
+            fileData = ConfigService.getInstance().getFileDataToDay(c.getId());
+            //5. kiểm tra đã có dữ liệu trong bảng file_data
+            if (fileData == null) { // Nếu chưa có file_data thì thêm file_data vào
+                // Thêm vào log bắt đầu nạp dữ liệu
+                LogService.getInstance().addLog(new Log(1, LocalDateTime.now(), "bắt đầu crawl dữ liệu", "CRAWLING"));
+                //7. Thêm dữ liệu vào vào bảng file_data với status= "PREPARE"
+                fileData = new FileData(1, c, "CRAWL DATA", LocalDate.now(), LocalDate.now(), LocalDateTime.now(), "Đặng", "crawl dữ liệu từ website", ConfigService.PREPARE);
+                ConfigService.getInstance().insertFileData(fileData);
             }
-            // 2. Kiểm tra status trong bảng log
-            if (log.getStatus() == "CRAWLING") { // kiểm tra status xem dòng dữ liệu hiện có đang chạy hay không
-                continue;
+            // 6-8. Kiểm tra status trong bảng file_data có đang CRAWL dữ liệu hay không
+            if (fileData.getStatus() != 1) { // kiểm tra status xem dòng dữ liệu hiện có đang chạy hay không
+                //9. Cập nhật status trong log thành CRAWLLING
+                ConfigService.getInstance().setstatusFileData(ConfigService.CRAWLING, fileData.getId());
+                // Tiến hành crawl dữ liệu
+                crawlerData(c.getSource_url(), c.getSource_path(), c.getName(), c.getFile_format(), LocalDate.now(), fileData.getId());
             }
-            //3. Cập nhật status trong log thành CRAWLLING
-            LogService.getInstance().setStatus("CRAWLING", log.getId());
-            // Tiến hành crawl dữ liệu
-           LocalDate date= ConfigService.getInstance().updateDateConfig(LocalDate.now(), c.getId());
-            crawlerData(c.getUrl_website(), c.getFile_path(), c.getFile_format(), date, log.getId());
+
         }
     }
 
-    public static void crawlerData(String url, String sourceFile, String fileFormat, LocalDate update_date, int idLog) {
+    public static void crawlerData(String url, String sourceFile, String namefile, String fileFormat, LocalDate create_date, int idFileData) {
         try {
-            // 4. Lấy đường dẫn URL của website
+            // 10. Lấy đường dẫn URL của website
             Document document = Jsoup.connect(url).get();
-            // 5. Kiểm tra đường dẫn có lỗi hay không
+            // 11. Kiểm tra đường dẫn có lỗi hay không
             if (document == null) {
-                // 5.1. Nếu đường dẫn có lỗi xãy ra cập nhật status vào bảng log
-                LogService.getInstance().setStatus("ERROR", idLog);
-                // 5.2. Ghi lỗi vào bảng log
-                LogService.getInstance().setMessage("Lỗi khi truy cập link website: " + document, idLog);
+                // 13. Nếu đường dẫn có lỗi xãy ra cập nhật status vào bảng file_data
+                ConfigService.getInstance().setstatusFileData(ConfigService.FAILED, idFileData);
+                // 14. Ghi lỗi vào bảng log
+                LogService.getInstance().addLog(new Log(1, LocalDateTime.now(), namefile +"Lỗi đường dẫn website khi crawl data", "FAILED"));
                 return;
             }
 
-            //6. Tiến hành đọc dữ liệu các thẻ html của website
+            //12. Tiến hành đọc dữ liệu các thẻ html của website
             String title = document.select("h2.title-giaidau").text();
             System.out.println("Title: " + title);
 
@@ -67,15 +69,15 @@ public class ScriptCrawData {
             Elements rows = tableBXH.select("tr");
 
             List<String[]> listDataRow = new ArrayList<>();
-            //7. Duyệt lần lượt các dòng dữ liệu
+            //15. Duyệt lần lượt các dòng dữ liệu
             for (Element row : rows) {
-                // 8. Lấy một dòng dữ liệu
+                // 16. Lấy một dòng dữ liệu
                 Elements cells = row.select("td");
                 if (cells.text().isEmpty()) continue;
 
-                //10. Lưu 1 dòng dữ liệu vào dạng mãng String
+                //17. Lưu 1 dòng dữ liệu vào dạng mãng String
                 String[] rowData = new String[cells.size() + 4];
-                // 11. Duyệt đến khi hết dòng dữ liệu
+                // 18. Duyệt đến khi hết dòng dữ liệu
                 for (int i = 0; i < cells.size(); i++) {
                     if (i < imageColumnIndex) {
                         rowData[i] = cells.get(i).text();
@@ -101,35 +103,38 @@ public class ScriptCrawData {
                 // năm trận gần nhất
 //                rowData[rowData.length - 1] = getLast5Matches(cells);
 
-                // 11.lưu tất cả dòng dữ liệu vào list
+                // 19.lưu tất cả dòng dữ liệu vào list
 //                csvWriter.writeNext(rowData);
                 listDataRow.add(rowData);
             }
-            //12. Đọc đường dẫn file csv từ bảng config
-            File file = new File(sourceFile + update_date + fileFormat);
-            //13. Kiểm tra lỗi đường dẫn hay không
-            if (file.getPath() == null ) {
-                // 5.1 cập nhật status trong bảng log
-                LogService.getInstance().setStatus("ERROR", idLog);
-                // 5.2 Ghi lỗi vào bảng log
-                LogService.getInstance().setMessage("Lỗi đường dẫn", idLog);
+            //20. Đọc đường dẫn file csv từ bảng config
+            File file = new File(sourceFile + create_date + "_" + namefile + fileFormat);
+            //21. Kiểm tra lỗi đường dẫn hay không
+            if (file.getPath() == null) {
+                // 13 cập nhật status trong bảng file_data
+                ConfigService.getInstance().setstatusFileData(ConfigService.FAILED, idFileData);
+                // 14 Ghi lỗi vào bảng log
+                LogService.getInstance().addLog(new Log(1, LocalDateTime.now(), namefile +"Lỗi file không tồn tại", "FAILED"));
                 return;
             }
             System.out.println(file.getPath());
             FileWriter fileWriter = new FileWriter(file);
             CSVWriter csvWriter = new CSVWriter(fileWriter);
-            //14. Lưu tất cả vào dữ liệu vào file.csv
+            //22. Lưu tất cả vào dữ liệu vào file.csv
             for (String[] s : listDataRow) {
                 csvWriter.writeNext(s);
             }
-            //15. Đóng file
+            //23. Đóng file
             csvWriter.close();
             fileWriter.close();
+            //24. Cập nhật dữ liệu trong bảng file_data status= EXTRACTED
+            ConfigService.getInstance().setstatusFileData(ConfigService.SUCCESS, idFileData);
+            //25. Ghi nhận vào bảng log crawl dữ liệu thành công
+            LogService.getInstance().addLog(new Log(1, LocalDateTime.now(), namefile + "CRAWL data thành công", "SUCCESS"));
             System.out.println("Data has been written to output.csv");
-            LogService.getInstance().setStatus("SUCCESS", idLog);
         } catch (IOException e) {
-            LogService.getInstance().setStatus("ERROR", idLog);
-            e.printStackTrace();
+            LogService.getInstance().addLog(new Log(1, LocalDateTime.now(), namefile +"nạp dữ liệu thất bại", "FAILED"));
+            System.out.println("CRAWL DATA FAILED");
         }
     }
 
@@ -147,7 +152,6 @@ public class ScriptCrawData {
         }
         return "";
     }
-
     private static String getLast5Matches(Elements cells) {
         return "";
 
