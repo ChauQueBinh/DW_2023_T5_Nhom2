@@ -42,7 +42,7 @@ public class LoadDataToAggregate {
                     .bind(7, row.get("he_so"))
                     .bind(8, row.get("diem"))
                     .bind(9, row.get("nam_tran_gan_nhat"))
-                    .bind(10, row.get("name"))
+                    .bind(10, row.get("ten_giai_dau"))
                     .bind(11, fullTime)
                     .execute();
         }
@@ -52,7 +52,7 @@ public class LoadDataToAggregate {
         // Thực hiện truy vấn trích xuất từ bảng bang_xep_hang_fact
         String extractQuery = "SELECT bang_xep_hang_fact.*, doi_bong_dim.hang, doi_bong_dim.ten_doi_bong, doi_bong_dim.logo, doi_bong_dim.so_tran, " +
                 "doi_bong_dim.tran_thang, doi_bong_dim.tran_hoa, doi_bong_dim.tran_thua, doi_bong_dim.he_so, doi_bong_dim.diem," +
-                " doi_bong_dim.nam_tran_gan_nhat,giai_dau_dim.name, thoi_gian_dim.day, thoi_gian_dim.month, thoi_gian_dim.year, " +
+                "doi_bong_dim.nam_tran_gan_nhat,giai_dau_dim.ten_giai_dau, thoi_gian_dim.day, thoi_gian_dim.month, thoi_gian_dim.year, " +
                 "CONCAT(LPAD(thoi_gian_dim.day, 2, '0'), '-', LPAD(thoi_gian_dim.month, 2, '0'), '-', thoi_gian_dim.year) AS full_date " +
                 "FROM bang_xep_hang_fact " +
                 "INNER JOIN doi_bong_dim ON bang_xep_hang_fact.id_doibong = doi_bong_dim.id " +

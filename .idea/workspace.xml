@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c2f33e5-caf5-472d-94e7-d6269982dc1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataWareHouse Core.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BXHAggregate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BXHfact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Doibongdim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Giaidaudim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Thoigiandim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToAggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToFact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/DBProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/JDBIConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptCrawData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToMart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToStaging.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/LoadDataToAggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToAggregate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/LoadDataToFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToFact.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +71,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoadDataToAggregate">
+  <component name="RunManager" selected="Application.LoadDataToFact">
     <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.db.DBConnect" />
       <module name="CrawData" />
@@ -162,10 +146,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoadDataToAggregate" />
         <item itemvalue="Application.LoadDataToFact" />
-        <item itemvalue="Application.ScriptLoadDataToStaging" />
+        <item itemvalue="Application.LoadDataToAggregate" />
         <item itemvalue="Application.ScriptCrawData" />
+        <item itemvalue="Application.ScriptLoadDataToStaging" />
         <item itemvalue="Application.DBConnect" />
       </list>
     </recent_temporary>
@@ -191,7 +175,7 @@
       <workItem from="1701804393109" duration="362000" />
       <workItem from="1702128511315" duration="5425000" />
       <workItem from="1702141013602" duration="2011000" />
-      <workItem from="1702276691763" duration="502000" />
+      <workItem from="1702276691763" duration="5080000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ import org.example.db.JDBIConnector;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -20,6 +21,7 @@ public class LoadDataToFact {
             factHandle.createUpdate("TRUNCATE TABLE bang_xep_hang_fact").execute();
             factHandle.createUpdate("TRUNCATE TABLE doi_bong_dim").execute();
             factHandle.createUpdate("TRUNCATE TABLE giai_dau_dim").execute();
+            factHandle.createUpdate("TRUNCATE TABLE thoi_gian_dim").execute();
             factHandle.createUpdate("SET foreign_key_checks = 1").execute();
 
             ArrayList<Map<String, Object>> result = extractDataFromStaging(stagingHandle);
@@ -35,7 +37,7 @@ public class LoadDataToFact {
 
     private static ArrayList<Map<String, Object>> extractDataFromStaging(Handle handle) {
         // Thực hiện truy vấn trích xuất từ bảng staging
-        String extractQuery = "SELECT * FROM bangxephangstaging";
+        String extractQuery = "SELECT * FROM staging";
         return new ArrayList<>(handle.createQuery(extractQuery).mapToMap().list());
     }
 
@@ -44,20 +46,27 @@ public class LoadDataToFact {
 
         for (Map<String, Object> row : resultData) {
             // Xác định các giá trị cần chèn vào bảng fact từ các bảng dim
-            String teamName = (String) row.get("doi");
-            String tournamentName = (String) row.get("tengiaidau");
+            String teamName = (String) row.get("ten_doi_bong");
+            String tournamentName = (String) row.get("ten_giai_dau");
 
             // Lấy id_doibong từ bảng doibongdim
-            int teamId = factHandle.createQuery("SELECT id FROM doi_bong_dim WHERE ten_doi_bong = :teamName").bind("teamName", teamName).mapTo(Integer.class).findOne().orElse(null);
+            int teamId = factHandle.createQuery("SELECT id FROM doi_bong_dim WHERE ten_doi_bong = :teamName")
+                    .bind("teamName", teamName).mapTo(Integer.class).findOne().orElse(null);
+
 
             // Lấy id_giaidau từ bảng giaidaudim
-            int tournamentId = factHandle.createQuery("SELECT id FROM giai_dau_dim WHERE name = :tournamentName").bind("tournamentName", tournamentName).mapTo(Integer.class).findOne().orElse(null);
+            int tournamentId = factHandle.createQuery("SELECT id FROM giai_dau_dim WHERE ten_giai_dau = :tournamentName")
+                    .bind("tournamentName", tournamentName).mapTo(Integer.class).findOne().orElse(null);
 
             // Lấy id_thoigian
             int timeId = 1;
 
             // Chèn dữ liệu vào bảng fact
-            factHandle.createUpdate(loadQueryFact).bind(0, teamId).bind(1, tournamentId).bind(2, timeId).execute();
+            factHandle.createUpdate(loadQueryFact)
+                    .bind(0, teamId)
+                    .bind(1, tournamentId)
+                    .bind(2, timeId)
+                    .execute();
         }
     }
 
@@ -68,7 +77,7 @@ public class LoadDataToFact {
         // Map để theo dõi tên đội bóng duy nhất và tránh chèn trùng lặp
         Map<String, Boolean> uniqueTeamNames = new HashMap<>();
 
-        String loadQueryGiaidaudim = "INSERT INTO giai_dau_dim (name) VALUES (?)";
+        String loadQueryGiaidaudim = "INSERT INTO giai_dau_dim (ten_giai_dau) VALUES (?)";
 
         String loadQueryThoigiandim = "INSERT INTO thoi_gian_dim (day, month, year) VALUES (?, ?, ?)";
 
@@ -82,10 +91,10 @@ public class LoadDataToFact {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
 
         for (Map<String, Object> row : resultData) {
-            String teamName = (String) row.get("doi");
+            String teamName = (String) row.get("ten_doi_bong");
 
             // Chuyển đổi giá trị thời gian từ Map
-            String thoigiancraw = (String) row.get("thoigiancraw");
+            String thoigiancraw = (String) row.get("thoi_gian_crawl");
             LocalDateTime dateTime = LocalDateTime.parse(thoigiancraw, formatter);
 
             handle.createUpdate(loadQueryThoigiandim)
@@ -101,20 +110,20 @@ public class LoadDataToFact {
                         .bind(0, row.get("hang"))
                         .bind(1, teamName)
                         .bind(2, row.get("logo"))
-                        .bind(3, row.get("tran"))
-                        .bind(4, row.get("thang"))
-                        .bind(5, row.get("hoa"))
-                        .bind(6, row.get("bai"))
-                        .bind(7, row.get("heso"))
+                        .bind(3, row.get("so_tran"))
+                        .bind(4, row.get("tran_thang"))
+                        .bind(5, row.get("tran_hoa"))
+                        .bind(6, row.get("tran_thua"))
+                        .bind(7, row.get("he_so"))
                         .bind(8, row.get("diem"))
-                        .bind(9, row.get("5trangannhat"))
+                        .bind(9, row.get("nam_tran_gan_nhat"))
                         .execute();
                 // Thêm tên đội bóng vào Map để đảm bảo không chèn trùng lặp
                 uniqueTeamNames.put(teamName, true);
             }
 
             // Lấy tên giải đấu từ dòng dữ liệu
-            String tournamentName = (String) row.get("tengiaidau");
+            String tournamentName = (String) row.get("ten_giai_dau");
 
             // Kiểm tra xem tên giải đấu chưa có trong Map và số lượng giải đấu đã chèn ít hơn 4
             if (!uniqueTournaments.containsKey(tournamentName) && insertedTournaments < 4) {
