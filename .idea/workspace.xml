@@ -71,7 +71,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bean" />
@@ -125,9 +125,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="service.ScriptCrawData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ScriptCrawData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="service.ScriptCrawData" />
-      <module name="DW_2023_T5_Nhom2" />
+      <module name="CrawData" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
@@ -138,9 +138,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="service.ScriptLoadDataToStaging" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ScriptLoadDataToStaging" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="service.ScriptLoadDataToStaging" />
-      <module name="DW_2023_T5_Nhom2" />
+      <module name="CrawData" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
