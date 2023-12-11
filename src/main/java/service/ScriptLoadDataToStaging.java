@@ -35,7 +35,7 @@ public class ScriptLoadDataToStaging {
 
             // Process each line
             for (String[] line : allLines) {
-                StringBuilder stringBuilderSQL = new StringBuilder("Insert into staging(hang,logo,ten_doi_bong,so_tran,tran_thang,tran_hoa,tran_thua,he_so,diem,nam_tran_gan_nhat,ten_giai_dau,thoi_gian_crawl) values (");
+                StringBuilder stringBuilderSQL = new StringBuilder("Insert into bangxephangstaging(hang,logo,doi,tran,thang,hoa,bai,heso,diem,5trangannhat,tengiaidau,thoigiancraw) values (");
                 for (int i = 0; i < line.length - 2; i++) {
                     stringBuilderSQL.append("'" + line[i] + "',");
                 }

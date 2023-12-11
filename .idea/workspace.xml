@@ -5,20 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c2f33e5-caf5-472d-94e7-d6269982dc1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DataWareHouse Core.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BXHAggregate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/BXHfact.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Doibongdim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Giaidaudim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bean/Thoigiandim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToAggregate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bean/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ConfigService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LoadDataToFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/LoadDataToFact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptCrawData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToMart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToMart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ScriptLoadDataToStaging.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DBStaging.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DBStaging.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/DBProperties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/JDBIConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/LoadDataToFact.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptCrawData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToMart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/ScriptLoadDataToStaging.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,27 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/DW_2023_T5_Nhom2-20130204_chauquebinh&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15917969&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.26242775&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "20130235__hahuydung",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/DW/DW_2023_T5_Nhom2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15917969",
+    "project.structure.side.proportion": "0.26242775",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DW\DW_2023_T5_Nhom2" />
+      <recent name="D:\DW\DW_2023_T5_Nhom2\src\main\java\bean" />
       <recent name="D:\Data WareHouse\DW_2023_T5_Nhom2\src\main\resources" />
       <recent name="D:\Data WareHouse\DW_2023_T5_Nhom2\src\main\java" />
     </key>
@@ -68,10 +87,23 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.service.ScriptLoadDataToStaging">
-    <configuration name="ConfigService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.ConfigService" />
-      <module name="DW_2023_T5_Nhom2" />
+  <component name="RunManager" selected="Application.LoadDataToAggregate">
+    <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.db.DBConnect" />
+      <module name="CrawData" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.db.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoadDataToAggregate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="service.LoadDataToAggregate" />
+      <module name="CrawData" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
@@ -83,23 +115,10 @@
       </method>
     </configuration>
     <configuration name="LoadDataToFact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.LoadDataToFact" />
+      <option name="MAIN_CLASS_NAME" value="service.LoadDataToFact" />
       <module name="CrawData" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="service.LogService" />
-      <module name="DW_2023_T5_Nhom2" />
-      <extension name="coverage">
-        <pattern>
           <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -108,9 +127,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="service.ScriptCrawData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ScriptCrawData" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="service.ScriptCrawData" />
-      <module name="DW_2023_T5_Nhom2" />
+      <module name="CrawData" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
@@ -121,9 +140,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="service.ScriptLoadDataToStaging" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ScriptLoadDataToStaging" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="service.ScriptLoadDataToStaging" />
-      <module name="DW_2023_T5_Nhom2" />
+      <module name="CrawData" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="service.*" />
@@ -135,19 +154,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.service.ScriptLoadDataToStaging" />
-      <item itemvalue="Application.LogService" />
-      <item itemvalue="Application.service.ScriptCrawData" />
+      <item itemvalue="Application.LoadDataToAggregate" />
+      <item itemvalue="Application.DBConnect" />
+      <item itemvalue="Application.ScriptCrawData" />
+      <item itemvalue="Application.ScriptLoadDataToStaging" />
       <item itemvalue="Application.LoadDataToFact" />
-      <item itemvalue="Application.ConfigService" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.service.ScriptLoadDataToStaging" />
-        <item itemvalue="Application.service.ScriptCrawData" />
-        <item itemvalue="Application.ConfigService" />
-        <item itemvalue="Application.LogService" />
+        <item itemvalue="Application.LoadDataToAggregate" />
         <item itemvalue="Application.LoadDataToFact" />
+        <item itemvalue="Application.ScriptLoadDataToStaging" />
+        <item itemvalue="Application.ScriptCrawData" />
+        <item itemvalue="Application.DBConnect" />
       </list>
     </recent_temporary>
   </component>
@@ -167,6 +186,12 @@
       <workItem from="1701424073951" duration="984000" />
       <workItem from="1701447758404" duration="4531000" />
       <workItem from="1701488006605" duration="6135000" />
+      <workItem from="1701531457203" duration="3340000" />
+      <workItem from="1701683799215" duration="4403000" />
+      <workItem from="1701804393109" duration="362000" />
+      <workItem from="1702128511315" duration="5425000" />
+      <workItem from="1702141013602" duration="2011000" />
+      <workItem from="1702276691763" duration="502000" />
     </task>
     <servers />
   </component>
