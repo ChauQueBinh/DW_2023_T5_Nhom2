@@ -16,14 +16,14 @@ public class BangxepHangAggregate implements Serializable {
     int diem;
     String nam_tran_gan_nhat;
     String ten_giai_dau;
-    LocalDate ngay_cap_nhat;
+    String ngay;
 
 
     public BangxepHangAggregate() {
 
     }
 
-    public BangxepHangAggregate(int id, int hang, String logo, String ten_doi_bong, int so_tran, int tran_thang, int tran_hoa, int tran_thua, int he_so, int diem, String nam_tran_gan_nhat, LocalDate ngay_cap_nhat, String ten_giai_dau) {
+    public BangxepHangAggregate(int id, int hang, String logo, String ten_doi_bong, int so_tran, int tran_thang, int tran_hoa, int tran_thua, int he_so, int diem, String nam_tran_gan_nhat, String ten_giai_dau, String ngay) {
         this.id = id;
         this.hang = hang;
         this.logo = logo;
@@ -35,8 +35,8 @@ public class BangxepHangAggregate implements Serializable {
         this.he_so = he_so;
         this.diem = diem;
         this.nam_tran_gan_nhat = nam_tran_gan_nhat;
-        this.ngay_cap_nhat = ngay_cap_nhat;
         this.ten_giai_dau = ten_giai_dau;
+        this.ngay = ngay;
     }
 
     public int getId() {
@@ -127,14 +127,6 @@ public class BangxepHangAggregate implements Serializable {
         this.nam_tran_gan_nhat = nam_tran_gan_nhat;
     }
 
-    public LocalDate getNgay_cap_nhat() {
-        return ngay_cap_nhat;
-    }
-
-    public void setNgay_cap_nhat(LocalDate ngay_cap_nhat) {
-        this.ngay_cap_nhat = ngay_cap_nhat;
-    }
-
     public String getTen_giai_dau() {
         return ten_giai_dau;
     }
@@ -142,10 +134,18 @@ public class BangxepHangAggregate implements Serializable {
     public void setTen_giai_dau(String ten_giai_dau) {
         this.ten_giai_dau = ten_giai_dau;
     }
+    public String getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
+    }
+
 
     @Override
     public String toString() {
-        return "BangXepHangAggregate{" +
+        return "BangxepHangAggregate{" +
                 "id=" + id +
                 ", hang=" + hang +
                 ", logo='" + logo + '\'' +
@@ -157,8 +157,8 @@ public class BangxepHangAggregate implements Serializable {
                 ", he_so=" + he_so +
                 ", diem=" + diem +
                 ", nam_tran_gan_nhat='" + nam_tran_gan_nhat + '\'' +
-                ", ngay_cap_nhat='" + ngay_cap_nhat + '\'' +
                 ", ten_giai_dau='" + ten_giai_dau + '\'' +
+                ", ngay=" + ngay +
                 '}';
     }
 }

@@ -1,5 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="bean.Teams" %>
 <%@ page import="service.AggregateService" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="bean.BangxepHangAggregate" %>
